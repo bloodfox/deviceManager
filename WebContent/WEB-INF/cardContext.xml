@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="autodetect">
+
+	<bean id="SimCardManageAction"
+		class="com.feinno.device.action.SimCardManageAction" singleton="false">
+		<property name="cardService" ref="cardService"></property>
+	</bean>
+
+	<bean id="cardService" class="com.feinno.device.service.SimCardServiceImpl">
+		<property name="cardDao" ref="cardDao"></property>
+	</bean>
+	
+	<bean id="cardDao" class="com.feinno.device.dao.SimCardDAOImpl">
+		<property name="jt" ref="jdbcTemplate"></property>
+	</bean>
+	
+</beans>

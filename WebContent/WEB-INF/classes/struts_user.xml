@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="user" extends="struts-default" namespace="/">
+
+		<!-- 登录初始化 -->
+		<action name="loginInit" class="UserManageAction" method="exeLoginInit">
+			<result name="success">login.jsp</result>
+			<result name="input">login.jsp</result>
+			<result name="error">login.jsp</result>
+			<result name="index">index.jsp</result>
+		</action>
+
+		<!-- 登录 -->
+		<action name="login" class="UserManageAction" method="exelogin">
+			<result name="success">index.jsp</result>
+			<result name="input">login.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+		<!-- 退出 -->
+		<action name="logout" class="UserManageAction" method="exeLogout">
+			<result name="success" type="redirect-action" >loginInit.action</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+		<!-- 变更管理员 -->
+		<action name="changeUser" class="UserManageAction" method="exeChangeUser">
+			<result name="success">login.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+		<!-- 变更管理员 -->
+		<action name="updatePass" class="UserManageAction" method="exeUpdatePass">
+			<result name="success">index.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

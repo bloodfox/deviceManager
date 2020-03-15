@@ -1,0 +1,54 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="phone" extends="struts-default" namespace="/phone">
+       
+       	<!-- 得到手机列表 -->
+		<action name="getPhoneList"
+			class="PhoneManageAction"
+			method="exeGetPhoneList">
+			<result name="success">phoneList.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>		
+       
+       	<!-- 得到手机详情 -->
+		<action name="getPhoneInfo"
+			class="PhoneManageAction"
+			method="exeGetPhoneById">
+			<result name="success">phoneDetail.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>		
+		
+       	<!-- 添加手机前的初始化 -->
+		<action name="addPhoneInfoInit"
+			class="PhoneManageAction"
+			method="exeAddPhoneInit">
+			<result name="success">../phone/phoneAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>	
+       	<!-- 添加手机详情 -->
+		<action name="addPhoneInfo"
+			class="PhoneManageAction"
+			method="exeAddPhone">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>	
+		
+			<!-- 修改手机前的初始化 -->
+		<action name="ModifyPhoneInit" class="PhoneManageAction"
+			method="exeModifyPhoneInit">
+			<result name="success">phoneEdit.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action> 
+
+		<!-- 修改手机 -->
+		<action name="ModifyPhone" class="PhoneManageAction" method="exeModifyPhone">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>	
+
+	</package>
+
+</struts>

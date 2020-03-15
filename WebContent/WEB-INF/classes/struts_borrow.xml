@@ -1,0 +1,109 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="borrow" extends="struts-default" namespace="/borrow">
+
+		<!-- 借用手机前的初始化 -->
+		<action name="borrowPhoneInit" class="BorrowManageAction"
+			method="exeBorrowPhoneInit">
+			<result name="success">borrowPhone.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 借用手机 -->
+		<action name="borrowPhone" class="BorrowManageAction" method="exeBorrowPhone">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 得到手机列表 -->
+		<action name="selectPhone" class="BorrowManageAction" method="exeSelectPhone">
+			<result name="success">phoneTree.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 借用手机卡前的初始化 -->
+		<action name="borrowCardInit" class="BorrowManageAction"
+			method="exeBorrowCardInit">
+			<result name="success">borrowCard.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 借用手机卡 -->
+		<action name="borrowCard" class="BorrowManageAction" method="exeBorrowPhone">
+			<result type="redirect-action">../card/getCardList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 得到手机卡列表 -->
+		<action name="selectCard" class="BorrowManageAction" method="exeSelectCard">
+			<result name="success">cardTree.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+		<!-- 得到待审核的借用信息 -->
+		<action name="selectBorrow" class="BorrowManageAction" method="exeSelectBorrow">
+			<result name="success">borrowList.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 审核借用信息 -->
+		<action name="confirmBorrow" class="BorrowManageAction" method="confirmBorrow">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 得到当前用户的借用信息 -->
+		<action name="selectUserBorrow" class="BorrowManageAction"
+			method="exeSelectUserBorrow">
+			<result name="success">userBorrowList.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 归还借用信息 -->
+		<action name="returnBorrow" class="BorrowManageAction" method="returnBorrow">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 归还手机前初始化信息 -->
+		<action name="returnInit" class="BorrowManageAction" method="returnInit">
+			<result>returnPhone.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<!-- 归还手机卡前初始化信息 -->
+		<action name="returnCardInit" class="BorrowManageAction"
+			method="returnCardInit">
+			<result>returnCard.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+		<!-- 撤销借用信息 -->
+		<action name="cancleBorrow" class="BorrowManageAction" method="cancleBorrow">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 审核归还信息 -->
+		<action name="confirmReturn" class="BorrowManageAction" method="confirmReturn">
+			<result type="redirect-action">../phone/getPhoneList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 借用手机历史查询 -->
+		<action name="searchBorrow" class="BorrowManageAction" method="exeSearchBorrow">
+			<result>borrowPhoneSearch.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<!-- 借用手机卡历史查询 -->
+		<action name="searchCardBorrow" class="BorrowManageAction" method="exeSearchCardBorrow">
+			<result>borrowCardSearch.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+
+</struts>

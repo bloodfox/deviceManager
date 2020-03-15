@@ -1,0 +1,49 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="card" extends="struts-default" namespace="/card">
+
+		<!-- 得到手机卡列表 -->
+		<action name="getCardList" class="SimCardManageAction" method="exeGetCardList">
+			<result name="success">cardList.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 得到手机卡详情 -->
+		<action name="getCardInfo" class="SimCardManageAction" method="exeGetCardById">
+			<result name="success">cardDetail.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+	<!-- 修改手机卡前的初始化 -->
+		<action name="ModifyCardInit" class="SimCardManageAction"
+			method="exeModifyCardInit">
+			<result name="success">cardEdit.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action> 
+
+		<!-- 修改手机卡 -->
+		<action name="ModifyCard" class="SimCardManageAction" method="exeModifyCard">
+			<result type="redirect-action">../card/getCardList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+	<!-- 手机卡充值前的初始化 -->
+		<action name="RechargeCardInit" class="SimCardManageAction"
+			method="exeRechargeCardInit">
+			<result name="success">cardBalance.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action> 
+
+		<!-- 手机卡充值 -->
+		<action name="RechargeCard" class="SimCardManageAction" method="exeRechargeCard">
+			<result type="redirect-action">../card/getCardList.action</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

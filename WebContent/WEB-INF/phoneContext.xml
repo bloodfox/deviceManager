@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="autodetect">
+
+	<bean id="PhoneManageAction"
+		class="com.feinno.device.action.PhoneManageAction" singleton="false">
+		<property name="phoneService" ref="phoneService"></property>
+	</bean>
+
+	<bean id="phoneService" class="com.feinno.device.service.PhoneServiceImpl">
+		<property name="phoneDAO" ref="phoneDAO"></property>
+	</bean>
+	
+	<bean id="phoneDAO" class="com.feinno.device.dao.PhoneDAOImpl">
+		<property name="jt" ref="jdbcTemplate"></property>
+	</bean>
+	
+</beans>

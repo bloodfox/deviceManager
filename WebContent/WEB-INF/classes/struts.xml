@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.custom.i18n.resources" value="messageResource" />
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <constant name="struts.serve.static" value="true" />
+    <constant name="struts.serve.static.browserCache" value="true" />
+    <constant name="struts.i18n.encoding" value="utf-8" />
+    <include file="struts_phone.xml" />
+    <include file="struts_simcard.xml" />
+    <include file="struts_borrow.xml" />
+    <include file="struts_user.xml" />
+    
+</struts>
+
+
+
